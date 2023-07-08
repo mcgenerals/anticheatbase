@@ -1,0 +1,7 @@
+name: AntiCheatBase
+version: '${project.version}'
+main: com.baguars.anticheatbase.AntiCheatBase
+commands:
+  verbose:
+depend:
+  - ProtocolLib
