@@ -21,11 +21,11 @@ It's easy!
 flag(e.getPlayer(),"Informatnion");
 ```
 5. Register check! Go AntiCheatBase.java and add this code in "onEable"
-```
-checkManager.addCheck( new ExampleFly("CheckName","CheckType") );
+```java
+checkManager.addCheck( new YourCheck("CheckName","CheckType") );
 ```
 Please add it above this code.
-```
+```java
 checkManager.setupChecks(); 
 ```
 6. Done! Build it and try :D
