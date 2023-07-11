@@ -15,6 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.PluginManager;
@@ -90,6 +91,12 @@ public final class AntiCheatBase extends JavaPlugin implements Listener {
         getPlayerManager().unregisterPlayer( e.getPlayer() );
     }
 
+    @EventHandler
+    public void onDamage(EntityDamageEvent e){
+        if( e.getEntity() instanceof  Player ){
+            playerManager.getPlayer( ((Player) e.getEntity()).getPlayer() ).damageTick = 0;
+        }
+    }
 
     public static AntiCheatBase getInstance(){
         return instance;

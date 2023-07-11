@@ -9,6 +9,7 @@ public class CustomPlayer {
 
     Player player;
     boolean verbose = false;
+    public int damageTick = 0;
 
     Location lastLocation;
 
@@ -38,6 +39,11 @@ public class CustomPlayer {
     public int serverAirTick,clientAirTick = 0;
     public double lastDeltaX,lastDeltaY,lastDeltaZ;
 
+    public double lastDeltaYaw,lastDeltaPitch;
+
+    public int getDamageTick(){
+        return damageTick;
+    }
 
     public Location getLastLocation(){
         return lastLocation;

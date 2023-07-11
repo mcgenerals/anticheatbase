@@ -18,6 +18,7 @@ public class CustomMoveEvent extends Event {
     Player player;
     CustomPlayer cp;
     double deltaX,deltaY,deltaZ;
+    double deltaYaw,deltaPitch,lastDeltaYaw,lastDeltaPitch;
     double deltaXZ,lastDeltaXZ;
     double lastDeltaX,lastDeltaY,lastDeltaZ;
     Location to,from;
@@ -39,7 +40,11 @@ public class CustomMoveEvent extends Event {
         lastDeltaX = cp.lastDeltaX;
         lastDeltaY = cp.lastDeltaY;
         lastDeltaZ = cp.lastDeltaZ;
+        lastDeltaYaw = cp.lastDeltaYaw;
+        lastDeltaPitch = cp.lastDeltaPitch;
 
+        deltaYaw = Math.abs( to.getYaw() - from.getYaw() );
+        deltaPitch = Math.abs( to.getPitch() - from.getPitch() );
 
         deltaXZ = Math.hypot(deltaX,deltaZ);
         lastDeltaXZ = Math.hypot(lastDeltaX,lastDeltaZ);
@@ -65,6 +70,8 @@ public class CustomMoveEvent extends Event {
         cp.lastDeltaX = deltaX;
         cp.lastDeltaY = deltaY;
         cp.lastDeltaZ = deltaZ;
+        cp.lastDeltaYaw = deltaYaw;
+        cp.lastDeltaPitch = deltaPitch;
     }
 
     public Player getPlayer(){
@@ -121,6 +128,30 @@ public class CustomMoveEvent extends Event {
 
     public double getLastDeltaZ() {
         return lastDeltaZ;
+    }
+
+    public double getDeltaXZ(){
+        return deltaXZ;
+    }
+
+    public double getLastDeltaXZ(){
+        return lastDeltaXZ;
+    }
+
+    public double getDeltaYaw(){
+        return deltaYaw;
+    }
+
+    public double getLastDeltaYaw(){
+        return lastDeltaYaw;
+    }
+
+    public double getDeltaPitch(){
+        return deltaPitch;
+    }
+
+    public double getLastDeltaPitch(){
+        return lastDeltaPitch;
     }
 
     public HandlerList getHandlers() {
