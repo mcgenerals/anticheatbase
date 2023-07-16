@@ -26,6 +26,7 @@ public class CustomMoveEvent extends Event {
 
     public CustomMoveEvent(Player p, Location newLoc) {
         cp = AntiCheatBase.getInstance().getPlayerManager().getPlayer( p );
+        cp.damageTick++;
         this.player = p;
         this.to = newLoc;
         this.from = cp.getLastLocation();
